@@ -134,13 +134,11 @@ if (isset($_POST['simpan'])) {
         echo "<script>
             alert('Simpan data sukses');
             document.location='admin.php?page=article';
-            document.location='fabian68.php?page=article';
         </script>";
     } else {
         echo "<script>
             alert('Simpan data gagal');
             document.location='admin.php?page=article';
-            document.location='fabian68.php?page=article';
         </script>";
     }
 
@@ -167,13 +165,11 @@ if (isset($_POST['hapus'])) {
         echo "<script>
             alert('Hapus data sukses');
             document.location='admin.php?page=article';
-            document.location='fabian68.php?page=article';
         </script>";
     } else {
         echo "<script>
             alert('Hapus data gagal');
             document.location='admin.php?page=article';
-            document.location='fabian68.php?page=article';
         </script>";
     }
 

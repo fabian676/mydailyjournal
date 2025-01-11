@@ -120,14 +120,12 @@ if (isset($_POST['simpan'])) {
     if ($simpan) {
         echo "<script>
             alert('Simpan data sukses');
-            document.location='admin.php?page=gallery';
-            document.location='fabian68.php?page=gallery';
+            document.location='admin.php?page=gallery';   
         </script>";
     } else {
         echo "<script>
             alert('Simpan data gagal');
-            document.location='admin.php?page=gallery';
-            document.location='fabian68.php?page=gallery';
+            document.location='admin.php?page=gallery';       
         </script>";
     }
 
@@ -154,13 +152,12 @@ if (isset($_POST['hapus'])) {
         echo "<script>
             alert('Hapus data sukses');
             document.location='admin.php?page=gallery';
-            document.location='fabian68.php?page=gallery';
+            
         </script>";
     } else {
         echo "<script>
             alert('Hapus data gagal');
             document.location='admin.php?page=gallery';
-            document.location='fabian68.php?page=gallery';
         </script>";
     }
 

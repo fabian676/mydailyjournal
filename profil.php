@@ -101,9 +101,3 @@ if (isset($_POST['simpan'])) {
 </div>
 </body>
 </html>
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include "koneksi.php"; // Koneksi database
-
