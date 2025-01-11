@@ -135,53 +135,49 @@ include "koneksi.php";
       </div>
     </section>
     <!-- article end -->
-    <!-- gallery start -->
-    <section
-      id="gallery"
-      class="isi text-center p-5 bg-danger-subtle text-dark"
-    >
-      <div class="container" href="#gallery">
-        <h1 class="fw-bold dispaly-4 pb-3">gallery</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/2.jpg" class="d-block w-100" alt="..." />
+    <!-- Gallery Start -->
+<section id="gallery" class="isi text-center p-5 bg-danger-subtle text-dark">
+  <div class="container" href="#gallery">
+    <h1 class="fw-bold display-4 pb-3">Gallery</h1>
+    <?php
+    $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+    $hasil = $conn->query($sql);
+
+    // Jika terdapat data gallery
+    if ($hasil->num_rows > 0) {
+      ?>
+      <div id="carouselGallery" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <?php
+          $active = true; // Flag untuk elemen pertama
+          while ($row = $hasil->fetch_assoc()) {
+            ?>
+            <div class="carousel-item <?= $active ? 'active' : '' ?>">
+              <img src="img/<?= $row["gambar"] ?>" class="d-block w-100" alt="Gallery Image">
             </div>
-            <div class="carousel-item">
-              <img src="img/3.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/4.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/5.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/6.jpg" class="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <?php
+            $active = false; // Hanya elemen pertama yang aktif
+          }
+          ?>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGallery" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselGallery" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </section>
-    <!-- gallert end -->
+      <?php
+    } else {
+      echo "<p>No images available in the gallery.</p>";
+    }
+    ?>
+  </div>
+</section>
+<!-- Gallery End -->
+
     <!-- schedule start -->
      <section id="schedule" class="text-center p-5" href="#schedule">
       <div class="container" >

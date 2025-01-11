@@ -10,6 +10,11 @@ if (isset($_SESSION['username'])) {
 	header("location:admin.php"); 
 }
 
+//check jika sudah ada user yang login arahkan ke halaman fabian68
+if (isset($_SESSION['username'])) { 
+	header("location:fabian68.php"); 
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['user'];
   
@@ -40,6 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //mengalihkan ke halaman admin
     header("location:admin.php");
+
+    //mengalihkan ke halaman fabian68
+    header("location:fabian68.php");
   } else {
 	  //jika tidak ada (gagal), alihkan kembali ke halaman login
     header("location:login.php");

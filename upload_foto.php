@@ -52,3 +52,8 @@ function upload_foto($File){
 	return $hasil;
 }
 ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
